@@ -38,8 +38,7 @@
 						 <div class="col-12 p-3">
 							 <p>As of right now, our queries are case sensitive. Therefore, please make sure when inputting the name of an author or publisher,
 							 that the capitalization is correct. For example, 'J. R. R. Tolkien' would be correct, whereas 'j. r. r. tolkien' would yield no results. 
-							  When inputting a location, it MUST be all lower case, as this is how the underlying data is stored, e.g., 'usa' would be correct, whereas 
-							  'USA' is likely to yield no results . This is something we looking to fix. </p>
+							  This is something we looking to fix. </p>
 						 </div>
 					</div>
 		     	</div>

@@ -41,7 +41,7 @@ public class QueryController {
 	public String getAverageBookRatingByLocation(@RequestParam String isbn, @RequestParam String location, Model model) throws Exception {
 		
 		BookRatings br = new BookRatings();
-		String result = br.getAvgBookRatingByLocation(isbn, location);
+		String result = br.getAvgBookRatingByLocation(isbn, location.toLowerCase());
 		model.addAttribute("details", result);
 		
 		return "results";
@@ -71,7 +71,7 @@ public class QueryController {
 	public String getAverageAuthorRatingByLocation(@RequestParam String author, @RequestParam String location, Model model) throws Exception {
 		
 		BookRatings br = new BookRatings();
-		String result = br.getAvgAuthorRatingByLocation(author, location);
+		String result = br.getAvgAuthorRatingByLocation(author, location.toLowerCase());
 		model.addAttribute("details", result);
 		
 		return "results";
@@ -101,7 +101,7 @@ public class QueryController {
 	public String getAveragePublisherRatingByLocation(@RequestParam String publisher, @RequestParam String location, Model model) throws Exception {
 		
 		BookRatings br = new BookRatings();
-		String result = br.getAvgPublisherRatingByLocation(publisher, location);
+		String result = br.getAvgPublisherRatingByLocation(publisher, location.toLowerCase());
 		model.addAttribute("details", result);
 		
 		return "results";
