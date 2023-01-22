@@ -24,51 +24,48 @@
 	     		
 				<h2> Get the average author rating for all of their book on its own, or by demographics! </h2>
 	     		
-				 <form id="form" action="/averageAuthorRating" method="GET">		
+				 <form class="pt-3" id="form" action="/averageAuthorRating" method="GET">		
 						
-						<div class="row"> 	 		
+						<div class="row border p-3"> 		
 							<div class="form-group pt-3 col">
-					   			<label for="author">Get the average rating of an author</label>
+								<p> <b> Get the average rating of an author </b> </p>								
 					  			<input type="text" class="form-control" name="author" id="author" placeholder="Input author name" required />    
 					 		</div>
-				 		</div>
-			 	  		
-			 	  		<div class="pt-3">
-			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
-			 	  		</div>
-				    
+					 		
+					 		<div class="pt-3">
+			 	  				<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  			</div>
+				 		</div>		    
 				 </form>
 				 
-				 <form id="form" action="/averageAuthorRatingByAge" method="GET">		
+				 <form class="pt-3" id="form" action="/averageAuthorRatingByAge" method="GET">		
 						
-						<div class="row"> 	 		
+						<div class="row border p-3">	 		
 							<div class="form-group pt-3 col">
-					   			<label for="author">Get the average rating of an author, filtered by the age of the users who provided the ratings:</label>
+								<p> <b> Get the average rating of an author, filtered by the age of the users who provided the ratings </b> </p>
 					  			<input type="text" class="form-control" name="author" id="author" placeholder="Input author name" required /> 
 					  			<input type="number" class="form-control" name="age" id="age" min="0" placeholder="Input age" required />    
 					 		</div>
-				 		</div>
-			 	  		
-			 	  		<div class="pt-3">
-			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
-			 	  		</div>
-				    
+					 		
+					 		<div class="pt-3">
+			 	  				<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  			</div>
+				 		</div>	    
 				 </form>
 				 
-				 <form id="form" action="/averageAuthorRatingByLocation" method="GET">		
+				 <form class="pt-3" id="form" action="/averageAuthorRatingByLocation" method="GET">		
 						
-						<div class="row"> 	 		
+						<div class="row border p-3"> 	 		
 							<div class="form-group pt-3 col">
-					   			<label for="author">Get the average rating of an author, filtered by the location of the users who provided the ratings:</label>
+								<p> <b> Get the average rating of an author, filtered by the location of the users who provided the ratings </b> </p>							
 					  			<input type="text" class="form-control" name="author" id="author" placeholder="Input author name" required /> 
 					  			<input type="text" class="form-control" name="location" id="location" placeholder="Input location" required /> 
 					 		</div>
-				 		</div>
-			 	  		
-			 	  		<div class="pt-3">
-			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
-			 	  		</div>
-				    
+						 		
+							<div class="pt-3">
+				 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+				 	  		</div>
+				 		</div>	    
 				 </form>	
 	     		
 	     	</div>
