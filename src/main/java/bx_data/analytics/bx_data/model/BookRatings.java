@@ -197,4 +197,32 @@ public class BookRatings {
 		return doc.toJson();
 		
 	}
+	
+	/**
+	 * This method provides insights as required by Functional Requirement 4.
+	 * @param isbn
+	 * @return
+	 * @throws Exception
+	 */
+	public String getAvgPublisherRating(String publisher) throws Exception {
+			
+		MongoClient mongoClient = MongoClients.create(uri);
+		MongoDatabase database = mongoClient.getDatabase("bx-data");
+		MongoCollection<Document> bookCollection = database.getCollection("book_ratings");
+		
+		Document doc = bookCollection.aggregate(Arrays.asList(
+				match(Filters.regex("publisher", ".*" + publisher + ".*")),
+				group("$publisher", Accumulators.avg("book_rating", "$book_rating"))
+				)
+			).first();
+		
+		if(doc == null) {
+			return "No results found";
+		}
+				
+		System.out.println(doc.toJson());
+			
+		return doc.toJson();
+		
+	}
 }

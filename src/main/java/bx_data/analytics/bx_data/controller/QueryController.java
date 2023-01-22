@@ -76,4 +76,14 @@ public class QueryController {
 		
 		return "results";
 	}
+	
+	@RequestMapping(value = "/averagePublisherRating", method = RequestMethod.GET)
+	public String getAveragePublisherRating(@RequestParam String publisher, Model model) throws Exception {
+		
+		BookRatings br = new BookRatings();
+		String result = br.getAvgPublisherRating(publisher);
+		model.addAttribute("details", result);
+		
+		return "results";
+	}
 }

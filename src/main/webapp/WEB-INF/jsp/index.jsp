@@ -115,6 +115,21 @@
 			 	  		</div>
 				    
 				 </form>
+				 
+				 <form id="form" action="/averagePublisherRating" method="GET">		
+						
+						<div class="row"> 	 		
+							<div class="form-group pt-3 col">
+					   			<label for="author">Get the average rating of all the books a specific publisher has published:</label>
+					  			<input type="text" class="form-control" name="publisher" id="publisher" placeholder="Input publisher name" required /> 
+					 		</div>
+				 		</div>
+			 	  		
+			 	  		<div class="pt-3">
+			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  		</div>
+				    
+				 </form>
 	     		
 	     	</div>
 	     </section>
