@@ -36,6 +36,38 @@
 			 	  		</div>
 				    
 				 </form>	 	
+				 
+				 <form id="form" action="/averageBookRatingByAge" method="GET">		
+						
+						<div class="row"> 	 		
+							<div class="form-group pt-3 col">
+					   			<label for="author">Get the average rating of a book, filtered by the age of the users who provided the ratings:</label>
+					  			<input type="text" class="form-control" name="isbn" id="isbn" placeholder="Input ISBN" required />   
+					  			<input type="number" class="form-control" name="age" id="age" min="0" placeholder="Input age" required />  
+					 		</div>
+				 		</div>
+			 	  		
+			 	  		<div class="pt-3">
+			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  		</div>
+				    
+				 </form>	 
+				 
+				 <form id="form" action="/averageBookRatingByLocation" method="GET">		
+						
+						<div class="row"> 	 		
+							<div class="form-group pt-3 col">
+					   			<label for="author">Get the average rating of a book, filtered by the location of the users who provided the ratings:</label>
+					  			<input type="text" class="form-control" name="isbn" id="isbn" placeholder="Input ISBN" required />   
+					  			<input type="text" class="form-control" name="location" id="location" placeholder="Input location" required />  
+					 		</div>
+				 		</div>
+			 	  		
+			 	  		<div class="pt-3">
+			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  		</div>
+				    
+				 </form>	
 	     		
 	     	</div>
 	     </section>

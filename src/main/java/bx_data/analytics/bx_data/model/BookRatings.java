@@ -10,6 +10,7 @@ import com.mongodb.client.model.Filters;
 
 import static com.mongodb.client.model.Aggregates.*;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 import org.bson.Document;
 
@@ -22,17 +23,81 @@ public class BookRatings {
 		
 	}
 	
+	
+	/**
+	 * This method provides insights as required by Functional Requirement 2.
+	 * @param isbn
+	 * @return
+	 * @throws Exception
+	 */
 	public String getAvgBookRating(String isbn) throws Exception {
 			
 		MongoClient mongoClient = MongoClients.create(uri);
 		MongoDatabase database = mongoClient.getDatabase("bx-data");
 		MongoCollection<Document> bookCollection = database.getCollection("book_ratings");
-			
-		// find a specific document
-		//Document doc = bookCollection.find(eq("book_author", author)).first();
 		
 		Document doc = bookCollection.aggregate(Arrays.asList(
 				match(Filters.eq("isbn", isbn)),
+				group("$isbn", Accumulators.avg("book_rating", "$book_rating"))
+				)
+			).first();
+		
+		if(doc == null) {
+			return "No results found";
+		}
+				
+		System.out.println(doc.toJson());
+			
+		return doc.toJson();
+		
+	}
+	
+	/**
+	 * This method provides insights as required by Functional Requirement 3, age only..
+	 * @param isbn
+	 * @param age
+	 * @return
+	 * @throws Exception
+	 */
+	public String getAvgBookRatingByAge(String isbn, int age) throws Exception {
+		
+		MongoClient mongoClient = MongoClients.create(uri);
+		MongoDatabase database = mongoClient.getDatabase("bx-data");
+		MongoCollection<Document> bookCollection = database.getCollection("book_ratings");
+		
+		Document doc = bookCollection.aggregate(Arrays.asList(
+				match(Filters.eq("isbn", isbn)),
+				match(Filters.eq("age", age)),
+				group("$isbn", Accumulators.avg("book_rating", "$book_rating"))
+				)
+			).first();
+		
+		if(doc == null) {
+			return "No results found";
+		}
+				
+		System.out.println(doc.toJson());
+			
+		return doc.toJson();
+		
+	}
+	
+	/**
+	 * This method provides insights as required by Functional Requirement 2, location only. 
+	 * @param isbn
+	 * @param location
+	 * @return
+	 * @throws Exception
+	 */
+	public String getAvgBookRatingByLocation(String isbn, String location) throws Exception {
+		
+		MongoClient mongoClient = MongoClients.create(uri);
+		MongoDatabase database = mongoClient.getDatabase("bx-data");
+		MongoCollection<Document> bookCollection = database.getCollection("book_ratings");
+		
+		Document doc = bookCollection.aggregate(Arrays.asList(
+				match(Filters.eq("isbn", isbn)),
+				match(Filters.regex("location", ".*" + location + ".*")),
 				group("$isbn", Accumulators.avg("book_rating", "$book_rating"))
 				)
 			).first();
