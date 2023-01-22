@@ -83,7 +83,7 @@ public class BookRatings {
 	}
 	
 	/**
-	 * This method provides insights as required by Functional Requirement 2, location only. 
+	 * This method provides insights as required by Functional Requirement 3, location only. 
 	 * @param isbn
 	 * @param location
 	 * @return
@@ -126,6 +126,64 @@ public class BookRatings {
 		
 		Document doc = bookCollection.aggregate(Arrays.asList(
 				match(Filters.regex("book_author", ".*" + author + ".*")),
+				group("$book_author", Accumulators.avg("book_rating", "$book_rating"))
+				)
+			).first();
+		
+		if(doc == null) {
+			return "No results found";
+		}
+				
+		System.out.println(doc.toJson());
+			
+		return doc.toJson();
+		
+	}
+	
+	/**
+	 * This method provides insights as required by Functional Requirement 5, by age only.
+	 * @param isbn
+	 * @return
+	 * @throws Exception
+	 */
+	public String getAvgAuthorRatingByAge(String author, int age) throws Exception {
+			
+		MongoClient mongoClient = MongoClients.create(uri);
+		MongoDatabase database = mongoClient.getDatabase("bx-data");
+		MongoCollection<Document> bookCollection = database.getCollection("book_ratings");
+		
+		Document doc = bookCollection.aggregate(Arrays.asList(
+				match(Filters.regex("book_author", ".*" + author + ".*")),
+				match(Filters.eq("age", age)),
+				group("$book_author", Accumulators.avg("book_rating", "$book_rating"))
+				)
+			).first();
+		
+		if(doc == null) {
+			return "No results found";
+		}
+				
+		System.out.println(doc.toJson());
+			
+		return doc.toJson();
+		
+	}
+	
+	/**
+	 * This method provides insights as required by Functional Requirement 5, by location only.
+	 * @param isbn
+	 * @return
+	 * @throws Exception
+	 */
+	public String getAvgAuthorRatingByLocation(String author, String location) throws Exception {
+			
+		MongoClient mongoClient = MongoClients.create(uri);
+		MongoDatabase database = mongoClient.getDatabase("bx-data");
+		MongoCollection<Document> bookCollection = database.getCollection("book_ratings");
+		
+		Document doc = bookCollection.aggregate(Arrays.asList(
+				match(Filters.regex("book_author", ".*" + author + ".*")),
+				match(Filters.regex("location", ".*" + location + ".*")),
 				group("$book_author", Accumulators.avg("book_rating", "$book_rating"))
 				)
 			).first();

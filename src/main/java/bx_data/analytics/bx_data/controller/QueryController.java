@@ -57,4 +57,23 @@ public class QueryController {
 		return "results";
 	}
 	
+	@RequestMapping(value = "/averageAuthorRatingByAge", method = RequestMethod.GET)
+	public String getAverageAuthorRatingByAge(@RequestParam String author, @RequestParam int age, Model model) throws Exception {
+		
+		BookRatings br = new BookRatings();
+		String result = br.getAvgAuthorRatingByAge(author, age);
+		model.addAttribute("details", result);
+		
+		return "results";
+	}
+	
+	@RequestMapping(value = "/averageAuthorRatingByLocation", method = RequestMethod.GET)
+	public String getAverageAuthorRatingByLocation(@RequestParam String author, @RequestParam String location, Model model) throws Exception {
+		
+		BookRatings br = new BookRatings();
+		String result = br.getAvgAuthorRatingByLocation(author, location);
+		model.addAttribute("details", result);
+		
+		return "results";
+	}
 }
