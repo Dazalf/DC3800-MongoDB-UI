@@ -38,7 +38,7 @@
 						 <div class="col-12 p-3">
 							 <p>As of right now, our queries are case sensitive. Therefore, please make sure when inputting the name of an author or publisher,
 							 that the capitalization is correct. For example, 'J. R. R. Tolkien' would be correct, whereas 'j. r. r. tolkien' would yield no results. This is
-							 something we looking to fix in future releases of this application!</p>
+							 something we looking to fix. </p>
 						 </div>
 					</div>
 		     	</div>
