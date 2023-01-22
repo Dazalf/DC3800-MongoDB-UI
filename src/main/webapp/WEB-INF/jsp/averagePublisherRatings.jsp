@@ -22,54 +22,51 @@
 	     <section class="text-center p-4">
 	     	<div class="container">
 	     		
-				<h2> Get the average publisher rating for all of their book on its own, or by demographics! </h2>
+				<h3> Get the average rating for a publisher for all of their books, on its own, or by demographics! </h3>
 	     		
-				<form id="form" action="/averagePublisherRating" method="GET">		
+				<form class="pt-3" id="form" action="/averagePublisherRating" method="GET">		
 						
-						<div class="row"> 	 		
+						<div class="row border p-3"> 		
 							<div class="form-group pt-3 col">
-					   			<label for="author">Get the average rating of all the books a specific publisher has published:</label>
+								<p> <b> Get the average rating of all the books a specific publisher has published </b> </p>
 					  			<input type="text" class="form-control" name="publisher" id="publisher" placeholder="Input publisher name" required /> 
 					 		</div>
-				 		</div>
-			 	  		
-			 	  		<div class="pt-3">
-			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
-			 	  		</div>
-				    
+					 		
+					 		<div class="pt-3">
+			 	  				<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  			</div>
+				 		</div>    
 				 </form>
 				 
-				 <form id="form" action="/averagePublisherRatingByAge" method="GET">		
+				 <form class="pt-3" id="form" action="/averagePublisherRatingByAge" method="GET">		
 						
-						<div class="row"> 	 		
+						<div class="row border p-3">	 		
 							<div class="form-group pt-3 col">
-					   			<label for="author">Get the average rating of all the books a specific publisher has published, filtered by the age of the users who provided the ratings:</label>
+								<p> <b> Get the average rating of all the books a specific publisher has published, filtered by the age of the users who provided the ratings </b> </p>
 					  			<input type="text" class="form-control" name="publisher" id="publisher" placeholder="Input publisher name" required />
 					  			<input type="number" class="form-control" name="age" id="age" min="0" placeholder="Input age" required />  
 					 		</div>
+					 		
+					 		<div class="pt-3">
+			 	  				<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  			</div>
 				 		</div>
-			 	  		
-			 	  		<div class="pt-3">
-			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
-			 	  		</div>
-				    
 				 </form>
 				 
 				 				 
-				 <form id="form" action="/averagePublisherRatingByLocation" method="GET">		
+				 <form class="pt-3" id="form" action="/averagePublisherRatingByLocation" method="GET">		
 						
-						<div class="row"> 	 		
+						<div class="row border p-3"> 	 		
 							<div class="form-group pt-3 col">
-					   			<label for="author">Get the average rating of all the books a specific publisher has published, filtered by the location of the users who provided the ratings:</label>
+								<p> <b> Get the average rating of all the books a specific publisher has published, filtered by the location of the users who provided the ratings </b> </p>
 					  			<input type="text" class="form-control" name="publisher" id="publisher" placeholder="Input publisher name" required />
 					  			<input type="text" class="form-control" name="location" id="location" placeholder="Input location" required /> 
 					 		</div>
-				 		</div>
-			 	  		
-			 	  		<div class="pt-3">
-			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
-			 	  		</div>
-				    
+					 		
+					 		<div class="pt-3">
+			 	  				<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  			</div>
+				 		</div>			    
 				 </form>
 	     		
 	     	</div>

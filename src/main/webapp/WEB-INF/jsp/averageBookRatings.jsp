@@ -22,7 +22,7 @@
 	     <section class="text-center p-4">
 	     	<div class="container">
 	     		
-				<h2 class="p-3"> Get the average rating book on its own, or by demographics! </h2>
+				<h3 class="p-3"> Get the average rating of a book, on its own, or by demographics! </h3>
 	     		
 				<form class="pt-3" id="form" action="/averageBookRating" method="GET">		
 						
