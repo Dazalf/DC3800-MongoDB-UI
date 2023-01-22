@@ -68,6 +68,21 @@
 			 	  		</div>
 				    
 				 </form>	
+				 
+				 <form id="form" action="/averageAuthorRating" method="GET">		
+						
+						<div class="row"> 	 		
+							<div class="form-group pt-3 col">
+					   			<label for="author">Get the average rating of an author</label>
+					  			<input type="text" class="form-control" name="author" id="author" placeholder="Input author name" required />    
+					 		</div>
+				 		</div>
+			 	  		
+			 	  		<div class="pt-3">
+			 	  			<button type="submit" value="Submit" class="btn btn-primary">Submit query</button>
+			 	  		</div>
+				    
+				 </form>
 	     		
 	     	</div>
 	     </section>
