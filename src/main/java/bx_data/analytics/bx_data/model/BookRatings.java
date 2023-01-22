@@ -36,6 +36,10 @@ public class BookRatings {
 				group("$isbn", Accumulators.avg("book_rating", "$book_rating"))
 				)
 			).first();
+		
+		if(doc == null) {
+			return "No results found";
+		}
 				
 		System.out.println(doc.toJson());
 			
