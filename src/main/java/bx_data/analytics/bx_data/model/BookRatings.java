@@ -199,7 +199,7 @@ public class BookRatings {
 	}
 	
 	/**
-	 * This method provides insights as required by Functional Requirement 4.
+	 * This method provides insights as required by Functional Requirement 6.
 	 * @param isbn
 	 * @return
 	 * @throws Exception
@@ -212,6 +212,64 @@ public class BookRatings {
 		
 		Document doc = bookCollection.aggregate(Arrays.asList(
 				match(Filters.regex("publisher", ".*" + publisher + ".*")),
+				group("$publisher", Accumulators.avg("book_rating", "$book_rating"))
+				)
+			).first();
+		
+		if(doc == null) {
+			return "No results found";
+		}
+				
+		System.out.println(doc.toJson());
+			
+		return doc.toJson();
+		
+	}
+	
+	/**
+	 * This method provides insights as required by Functional Requirement 7, by age only.
+	 * @param isbn
+	 * @return
+	 * @throws Exception
+	 */
+	public String getAvgPublisherRatingByAge(String publisher, int age) throws Exception {
+			
+		MongoClient mongoClient = MongoClients.create(uri);
+		MongoDatabase database = mongoClient.getDatabase("bx-data");
+		MongoCollection<Document> bookCollection = database.getCollection("book_ratings");
+		
+		Document doc = bookCollection.aggregate(Arrays.asList(
+				match(Filters.regex("publisher", ".*" + publisher + ".*")),
+				match(Filters.eq("age", age)),
+				group("$publisher", Accumulators.avg("book_rating", "$book_rating"))
+				)
+			).first();
+		
+		if(doc == null) {
+			return "No results found";
+		}
+				
+		System.out.println(doc.toJson());
+			
+		return doc.toJson();
+		
+	}
+	
+	/**
+	 * This method provides insights as required by Functional Requirement 7, by location only.
+	 * @param isbn
+	 * @return
+	 * @throws Exception
+	 */
+	public String getAvgPublisherRatingByLocation(String publisher, String location) throws Exception {
+			
+		MongoClient mongoClient = MongoClients.create(uri);
+		MongoDatabase database = mongoClient.getDatabase("bx-data");
+		MongoCollection<Document> bookCollection = database.getCollection("book_ratings");
+		
+		Document doc = bookCollection.aggregate(Arrays.asList(
+				match(Filters.regex("publisher", ".*" + publisher + ".*")),
+				match(Filters.regex("location", ".*" + location + ".*")),
 				group("$publisher", Accumulators.avg("book_rating", "$book_rating"))
 				)
 			).first();
